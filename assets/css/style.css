@@ -1,0 +1,27 @@
+
+.hero {
+    background: url(../img/backgound.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*Admin page*/
+.removePet{
+  display: none;
+}
+
+.colom a{
+  text-decoration: none;
+  color: black;
+}
+
+.colom p{
+}
+
+.border_pet{
+  border-radius: 2px;
+  -moz-box-shadow: 0 0 10px #777777;
+  -webkit-box-shadow: 0 0 10px #777777;
+  box-shadow: 0 0 10px #777777;}
+}
