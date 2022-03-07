@@ -21,7 +21,7 @@ if(isset($_POST['submit'])){
     if(is_uploaded_file($_FILES['image']['tmp_name'])){
       $file = basename($_FILES['image']['name']);
 
-      $picture = $saveDir . strip_tags($file);
+      $picture = $saveDir . $name .".jpg";
 
       move_uploaded_file($_FILES['image']['tmp_name'], $picture);
       $pet->insertPet($name, $gender, $age, $color, $type, $breed, $description, $picture);

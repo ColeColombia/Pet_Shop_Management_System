@@ -89,7 +89,37 @@ class Pet{
     if($pets){
       foreach ($pets as $key => $row) {
         echo "<div class='col-lg-3 colom'>
-                <a href='results.php?pet_id=".$row['pet_id']."'><img class='img-fluid' src='" .$row['picture']. "' alt=''>
+                <a href='petinfo.php?pet_id=".$row['pet_id']."'><img class='img-fluid' src='" .$row['picture']. "' alt=''>
+                <p class='text-center'>" .$row['name']. "</p></a>
+            </div>";
+    }
+
+    }
+  }
+
+  public function getByGender($gender, $type){
+    $crud   = new Crud();
+    $pets   = $crud->getByGender($gender, $type);
+
+    if($pets){
+      foreach ($pets as $key => $row) {
+        echo "<div class='col-lg-3 colom'>
+                <a href='petinfo.php?pet_id=".$row['pet_id']."'><img class='img-fluid' src='" .$row['picture']. "' alt=''>
+                <p class='text-center'>" .$row['name']. "</p></a>
+            </div>";
+    }
+
+    }
+  }
+
+  public function findByBreed($breed){
+    $crud   = new Crud();
+    $pets   = $crud->getByBreed("%$breed%");
+
+    if($pets){
+      foreach ($pets as $key => $row) {
+        echo "<div class='col-lg-3 colom'>
+                <a href='petinfo.php?pet_id=".$row['pet_id']."'><img class='img-fluid' src='" .$row['picture']. "' alt=''>
                 <p class='text-center'>" .$row['name']. "</p></a>
             </div>";
     }

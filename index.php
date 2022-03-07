@@ -12,7 +12,7 @@
 </div>
 </div>
 <div class="container-fluid my-4">
-    <div class="row g-5">
+    <div class="row g-3">
       <?php echo $pet->getPets(); ?>
   </div>
   </body>

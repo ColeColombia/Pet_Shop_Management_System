@@ -82,13 +82,11 @@ class Crud extends Database{
 
   public function getByBreed($breed){
     $pdo    = $this->connect;
-    $sql    = "SELECT * FROM pet WHERE breed=?";
+    $sql    = "SELECT * FROM pet WHERE breed LIKE ?";
     $stmt   = $pdo->prepare($sql);
     $result = $stmt->execute([$breed]);
-
-    if(!$result){
-      return "Something went wrong";
-    }
+    $result = $stmt->fetchAll();
+    return $result;
   }
 
   public function getById($ped_id){
@@ -110,11 +108,12 @@ class Crud extends Database{
     }
   }
 
-  public function getByGender($gender){
+  public function getByGender($gender, $type){
     $pdo    = $this->connect;
-    $sql    = "SELECT * FROM pet WHERE gender=?";
+    $sql    = "SELECT * FROM pet WHERE gender=? AND type=?";
     $stmt   = $pdo->prepare($sql);
-    $result = $stmt->execute([$gender]);
+    $stmt->execute([$gender, $type]);
+    $result = $stmt->fetchAll();
     return $result;
   }
 
@@ -132,8 +131,6 @@ class Crud extends Database{
     }
 
   }
-
-
 }
 
  ?>
